@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deneme</title>
+
+    <style>
+        button{
+            margin-left: 10px;
+            background-color: #1e4d55;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        input{
+            padding: 5px 10px;
+        }
+
+        .container{
+            width: 300px;
+            margin: 50px auto;
+            text-align: center;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div class="container">
+        <h1>Todo List uygulaması</h1>
+        <input type="text" id="veri">
+    
+        <div >
+            <ul id="veriekle">
+    
+            </ul>
+        </div>
+    </div>
+    
+
+    <script>
+
+
+       
+    
+        window.addEventListener("load",function () {
+            var veri = document.getElementById("veri");
+            var veriekle = document.getElementById("veriekle");
+            var sayac = 1;
+        
+            
+            veri.addEventListener("keypress",(event)=>{
+                
+                if (event.key === "Enter") {
+                    if (veri.value == "") {
+                        alert("Boş Değer Atayamazsınız!");
+                        return;
+                    }
+                    
+                    veriekle.innerHTML += "<li id='"+sayac+"'>"+veri.value+"    <button onclick='VeriSil("+sayac+")'>sil</button></li>   "
+                    
+                    veri.value = "";
+                    sayac++;
+                }
+                
+            })
+            
+        })
+
+        function VeriSil(id) {
+            document.getElementById(id).remove();
+        }
+       
+        
+        
+
+    
+    </script>
+</body>
+</html>
+
+
